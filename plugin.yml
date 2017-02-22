@@ -1,9 +1,11 @@
+name: WildPE
+main: WildPE\wild
 api: [2.1.0, 3.0.0]
 author: SinlesFlyer376
 description: WildPE
 commands:
-         wild:
-            default: op
+     wild:
+       default: op
 permissions:
-        factioncore.command.wild:
-             default: op
+     factioncore.command.wild:
+         default: op

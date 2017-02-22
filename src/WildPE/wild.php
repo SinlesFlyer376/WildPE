@@ -36,4 +36,6 @@ use pocketmine\event\entity\EntityDamageEvent;
 				return true;
 			break;
 		}
+	  }
+	}
 <?
