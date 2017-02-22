@@ -17,7 +17,7 @@ use pocketmine\event\entity\EntityDamageEvent;
     public function onCommand(CommandSender $sender, Command $cmd, $label, array $param ) {
 		switch(strtolower($cmd->getName())){
 			case "wild":
-				if($sender->hasPermission("FactionsCore.command.wild")) {
+				if($sender->hasPermission("factionscore.command.wild")) {
 					if($sender instanceof Player) {
 						$x = rand(1,350000);
             					$y = rand(1,256);
