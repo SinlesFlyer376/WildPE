@@ -38,4 +38,4 @@ use pocketmine\event\entity\EntityDamageEvent;
 		}
 	  }
 	}
-<?
+?>
