@@ -10,8 +10,8 @@ use pocketmine\{Server,Player};
 use pocketmine\utils\TextFormat;
 use pocketmine\event\entity\EntityDamageEvent;
 
-       class wild extends PluginBase implements  Listener {
-          public function onEnable(){
+class wild extends PluginBase implements Listener{
+	public function onEnable(){
               $this->getLogger()->info(C::AQUA . "Enabled Plugin WildPE by SinlesFlyer");
     }
     public function onCommand(CommandSender $sender, Command $cmd, $label, array $param ) {
