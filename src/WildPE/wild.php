@@ -19,7 +19,7 @@ class wild extends PluginBase implements  Listener {
 			case "wild":
 				if($sender instanceof Player) {
 					$x = mt_rand(-75000,75000);
-            				$y = rand(1,256);
+            				$y = rand(70,90);
 					$z = mt_rand(-75000,75000);
 					$sender->teleport($sender->getLevel()->getSafeSpawn(new Vector3($x, $y, $z)));
 					$sender->sendTip(TF::AQUA . "[Wild]" . TF::GRAY . " You've been teleported somewhere random!");
