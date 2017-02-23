@@ -5,7 +5,8 @@ author: SinlesFlyer376
 description: WildPE
 commands:
      wild:
-       default: op
+       description: "teleport to a random position in the world"
+       permission: factionscore.command.wild
 permissions:
      factioncore.command.wild:
          default: op
