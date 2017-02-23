@@ -1,41 +1,32 @@
-<?php
-namespace WildPE;
+<?php namespace WildPE;
 
 use pocketmine\plugin\PluginBase;
-use pocketmine\command\Command;
-use pocketmine\command\CommandSender;
-use pocketmine\level\{Level,Position};
+use pocketmine\event\Listener;
+use pocketmine\command\{Command,CommandSender};
 use pocketmine\math\Vector3;
-use pocketmine\{Server,Player};
+use pocketmine\Player;
 use pocketmine\utils\TextFormat;
-use pocketmine\event\entity\EntityDamageEvent;
 
-       class wild extends PluginBase implements  Listener {
-          public function onEnable(){
-              $this->getLogger()->info(C::AQUA . "Enabled Plugin WildPE by SinlesFlyer");
-    }
-    public function onCommand(CommandSender $sender, Command $cmd, $label, array $param ) {
+class wild extends PluginBase implements  Listener {
+	
+	public function onEnable(){
+		$this->getLogger()->info(TextFormat::AQUA . "Enabled Plugin WildPE by SinlesFlyer");
+	}
+
+	public function onCommand(CommandSender $sender, Command $cmd, $label, array $args) {
 		switch(strtolower($cmd->getName())){
 			case "wild":
-				if($sender->hasPermission("factionscore.command.wild")) {
-					if($sender instanceof Player) {
-						$x = rand(1,350000);
-            					$y = rand(1,256);
-						$z = rand(1,350000);
-						$sender->teleport($sender->getLevel()->getSafeSpawn(new Vector3($x, $y, $z)));
-						$sender->sendTip(TF::AQUA . "[Wild] §7You've been teleported somewhere wild!");
-						$sender->sendMessage(TF::AQUA . "[Wild] §7teleporting to: X-$x Z-$z");
-					}
-					else {
-						$sender->sendMessage(TF::AQUA . "[Wild] &7Only in-game!");
-					}
+				if($sender instanceof Player) {
+					$x = mt_rand(-75000,75000);
+            				$y = rand(1,256);
+					$z = mt_rand(-75000,75000);
+					$sender->teleport($sender->getLevel()->getSafeSpawn(new Vector3($x, $y, $z)));
+					$sender->sendTip(TextFormat::AQUA . "[Wild]" . TextFormat::GRAY . " You've been teleported somewhere wild!");
+					$sender->sendMessage(TextFormat::AQUA . "[Wild]" . TextFormat::GRAY . " Teleporting to: X-" . $x . " Z-" . $z);
+				} else {
+					$sender->sendMessage(TextFormat::AQUA . "[Wild]" . TextFormat::GRAY . " Only in-game!");
 				}
-				else {
-					$sender->sendMessage(TF::AQUA . "[Wild] §7You have no permission to use this command!");
-				}
-				return true;
 			break;
 		}
-	  }
 	}
-?>
+}
